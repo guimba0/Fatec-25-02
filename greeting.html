@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script>
+        function Horario() {
+            const agora = new Date();
+            const horas = agora.getHours();
+            const minutos = agora.getMinutes().toString().padStart(2, '0');
+            
+            let Tbom;
+            if (horas >= 5 && horas < 12) {Tbom = "Bom dia!";} 
+            else if (horas >= 12 && horas < 18) {Tbom = "Boa tarde!";} 
+            else {Tbom = "Boa noite!";}
+
+            document.getElementById("horario").textContent = `${horas.toString().padStart(2, '0')}:${minutos}`;
+            document.getElementById("Tbom").textContent = Tbom;
+        }
+
+        setInterval(Horario, 1000); // Atualiza o horário e saudação a cada segundo
+    </script>
+    </head>
+<body onload="Horario()">
+    <h1 id="Tbom"></h1>
+    <h2>Horário Atual: <span id="horario"></span></h2>
+</body>
+</html>
